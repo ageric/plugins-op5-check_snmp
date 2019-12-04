@@ -680,6 +680,9 @@ static int process_arguments(mp_snmp_context *ctx, int argc, char **argv)
 				break;
 			case 's':
 				if (filter_charmap_magic[(int)*optarg] == *optarg) {
+					if (*optarg == '=') {
+						optarg++;
+					}
 					add_filter("size", *optarg | FILTER_EXCLUDE, optarg + 1);
 				} else {
 					die(STATE_UNKNOWN, _("Option --exclude-size needs a comparison operator.\n"));
