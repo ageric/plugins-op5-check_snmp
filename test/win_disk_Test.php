@@ -1,6 +1,6 @@
 <?php
 require_once('test_helper.php');
-class Check_Snmp_Disk_Test extends test_helper
+class Win_Disk_Test extends test_helper
 {
 	public $plugin = 'check_by_snmp_disk';
 	public function get_snmp_data() {
