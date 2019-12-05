@@ -914,6 +914,10 @@ static int print_disk_entry(void *di_ptr, void *discard)
 {
 	struct disk_info *di = (struct disk_info *)di_ptr;
 
+	mp_debug(3, "di->AllocationUnits: %d\n", di->AllocationUnits);
+	mp_debug(3, "di->Descr: %s\n", di->Descr);
+	mp_debug(3, "di->size_bytes: %llu\n", di->size_bytes);
+	mp_debug(3, "di->free_bytes: %llu\n", di->free_bytes);
 	printf("%-16s: %-14s %dK-blocks   %6.2f%% used of %s. %s free\n",
 	       di->Descr, storage_type_name(di->Type),
 	       di->AllocationUnits >> 10,
