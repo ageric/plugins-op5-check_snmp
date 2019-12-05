@@ -522,10 +522,13 @@ const char *humanize_bytes(double bytes)
 	unsigned int suff_i = 0;
 
 	while (suff_i < ARRAY_SIZE(suffix) && bytes > 1024) {
+		mp_debug(4, "suff_i: %d; bytes: %f\n", suff_i, bytes);
 		bytes /= 1024;
 		suff_i++;
 	}
-	p = buf[buf_i++];
+	mp_debug(4, "suff_i: %d; bytes: %f\n", suff_i, bytes);
+	/* mask in low 5 bits so we never go beyond available buffers */
+	p = buf[buf_i++ & 31];
 	sprintf(p, "%.2lf%s", bytes, suffix[suff_i]);
 	return p;
 }
