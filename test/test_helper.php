@@ -1,6 +1,6 @@
 <?php
 # abstract phpunit doesn't instantiate this
-abstract class test_helper extends PHPUnit_Framework_TestCase
+abstract class test_helper extends PHPUnit\Framework\TestCase
 {
 	private $snmpsimroot = "/tmp";
 	private $snmpsimroot_current = false;
